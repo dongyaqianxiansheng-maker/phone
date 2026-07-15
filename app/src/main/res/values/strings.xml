@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Call Recorder</string>
+    <string name="consent_body">
+        This app records phone calls made and received on this device.
+
+        A visible, non-dismissible notification will be shown at all times
+        while call recording is active — recording never happens silently.
+
+        By continuing, you confirm that you are authorized to enable call
+        recording on this device and that you accept responsibility for
+        complying with the call recording and consent laws that apply in
+        your jurisdiction, including notifying other parties on a call
+        where required by law.
+
+        [PLACEHOLDER: Replace this text with the exact disclosure your
+        client\'s legal counsel reviewed and signed off on. Do not ship
+        with placeholder text.]
+    </string>
+</resources>
