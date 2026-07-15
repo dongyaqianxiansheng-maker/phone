@@ -33,9 +33,14 @@
         <!-- Foreground service: required so recording is never silent.
              Android forces a persistent, visible notification for the
              entire lifetime of this service. -->
+        <!-- foregroundServiceType is omitted: it was introduced in API 29,
+             and compileSdkVersion is pinned to 28 to match the Android 9
+             target device, so AAPT doesn't recognize the attribute. The
+             service is still a proper foreground service via
+             startForeground()/startForegroundService() in code, which is
+             what actually produces the persistent notification. -->
         <service android:name=".CallRecorderService"
-            android:exported="false"
-            android:foregroundServiceType="microphone" />
+            android:exported="false" />
 
     </application>
 </manifest>
