@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Grabadora de Llamadas</string>
+
+    <string name="btn_start_recording">Iniciar grabación de llamadas</string>
+    <string name="btn_stop_recording">Detener grabación de llamadas</string>
+    <string name="status_consent_given">Consentimiento registrado. El servicio de monitoreo puede iniciarse.</string>
+    <string name="status_consent_not_given">Aún no se ha dado el consentimiento.</string>
+    <string name="toast_permissions_required">Se requieren todos los permisos para que la grabación de llamadas funcione.</string>
+    <string name="toast_consent_required">Se requiere consentimiento para usar esta aplicación.</string>
+
+    <string name="btn_agree">Entiendo y acepto</string>
+    <string name="btn_decline">Rechazar</string>
+
+    <string name="consent_body">
+        Esta aplicación graba las llamadas telefónicas realizadas y recibidas en este dispositivo.
+
+        Se mostrará una notificación visible y no descartable en todo momento mientras la grabación esté activa: la grabación nunca ocurre de forma silenciosa.
+
+        Al continuar, confirma que está autorizado para habilitar la grabación de llamadas en este dispositivo y que acepta la responsabilidad de cumplir con las leyes de grabación y consentimiento de llamadas aplicables en su jurisdicción, incluyendo notificar a las demás partes de una llamada cuando la ley lo exija.
+
+        [MARCADOR DE POSICIÓN: Reemplace este texto con la divulgación exacta que el asesor legal de su cliente revisó y aprobó. No publique con texto de marcador de posición.]
+    </string>
+</resources>

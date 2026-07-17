@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                 startRecordingService();
             } else {
                 Toast.makeText(this,
-                        "All permissions are required for call recording to function.",
+                        getString(R.string.toast_permissions_required),
                         Toast.LENGTH_LONG).show();
             }
         }
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == REQ_CONSENT && resultCode == RESULT_OK) {
             requestMissingPermissions();
         } else if (requestCode == REQ_CONSENT) {
-            Toast.makeText(this, "Consent is required to use this app.", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, getString(R.string.toast_consent_required), Toast.LENGTH_LONG).show();
         }
     }
 
@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateStatus() {
         statusText.setText(ConsentActivity.hasConsented(this)
-                ? "Consent recorded. Monitoring service can be started."
-                : "Consent not yet given.");
+                ? getString(R.string.status_consent_given)
+                : getString(R.string.status_consent_not_given));
     }
 }

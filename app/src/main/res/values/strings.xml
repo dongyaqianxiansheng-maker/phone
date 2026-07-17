@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Call Recorder</string>
+
+    <string name="btn_start_recording">Start Call Recording</string>
+    <string name="btn_stop_recording">Stop Call Recording</string>
+    <string name="status_consent_given">Consent recorded. Monitoring service can be started.</string>
+    <string name="status_consent_not_given">Consent not yet given.</string>
+    <string name="toast_permissions_required">All permissions are required for call recording to function.</string>
+    <string name="toast_consent_required">Consent is required to use this app.</string>
+
+    <string name="btn_agree">I Understand and Agree</string>
+    <string name="btn_decline">Decline</string>
+
     <string name="consent_body">
         This app records phone calls made and received on this device.
 
@@ -18,3 +29,4 @@
         with placeholder text.]
     </string>
 </resources>
+

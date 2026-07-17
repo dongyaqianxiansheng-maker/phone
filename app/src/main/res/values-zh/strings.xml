@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">通话录音</string>
+
+    <string name="btn_start_recording">开始通话录音</string>
+    <string name="btn_stop_recording">停止通话录音</string>
+    <string name="status_consent_given">已记录同意。监控服务可以启动。</string>
+    <string name="status_consent_not_given">尚未获得同意。</string>
+    <string name="toast_permissions_required">通话录音功能需要全部权限才能正常运行。</string>
+    <string name="toast_consent_required">使用本应用需要您的同意。</string>
+
+    <string name="btn_agree">我已了解并同意</string>
+    <string name="btn_decline">拒绝</string>
+
+    <string name="consent_body">
+        本应用会记录此设备上拨打和接听的电话通话。
+
+        在通话录音进行期间，屏幕上将始终显示一个可见且无法关闭的通知——录音不会在未提示的情况下静默进行。
+
+        继续操作即表示您确认自己有权在此设备上启用通话录音功能，并同意承担遵守您所在司法辖区相关通话录音及同意法律的责任，包括在法律要求时通知通话中的其他各方。
+
+        【占位符：请将此文本替换为客户法律顾问已审核并批准的确切披露内容。请勿在使用占位文本的情况下发布。】
+    </string>
+</resources>

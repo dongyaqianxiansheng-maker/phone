@@ -17,13 +17,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="I Understand and Agree" />
+        android:text="@string/btn_agree" />
 
     <Button
         android:id="@+id/btn_decline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Decline" />
+        android:text="@string/btn_decline" />
 
 </LinearLayout>
