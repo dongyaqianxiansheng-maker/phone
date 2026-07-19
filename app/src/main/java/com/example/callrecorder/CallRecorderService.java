@@ -65,6 +65,8 @@ public class CallRecorderService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.i(TAG, "onStartCommand called");
+
         if (!ConsentActivity.hasConsented(this)) {
             Log.w(TAG, "Consent not recorded; refusing to start.");
             stopSelf();
@@ -91,12 +93,15 @@ public class CallRecorderService extends Service {
         phoneStateListener = new PhoneStateListener() {
             @Override
             public void onCallStateChanged(int state, String phoneNumber) {
+                Log.i(TAG, "onCallStateChanged: state=" + state);
                 switch (state) {
                     case TelephonyManager.CALL_STATE_OFFHOOK:
+                        Log.i(TAG, "CALL_STATE_OFFHOOK -> beginRecording()");
                         beginRecording();
                         break;
                     case TelephonyManager.CALL_STATE_IDLE:
                     case TelephonyManager.CALL_STATE_RINGING:
+                        Log.i(TAG, "CALL_STATE_IDLE/RINGING -> stopRecording()");
                         stopRecording();
                         break;
                 }
@@ -104,6 +109,7 @@ public class CallRecorderService extends Service {
         };
 
         telephonyManager.listen(phoneStateListener, PhoneStateListener.LISTEN_CALL_STATE);
+        Log.i(TAG, "registerCallStateListener: listener registered, telephonyManager=" + telephonyManager);
     }
 
     private void beginRecording() {
