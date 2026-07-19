@@ -1,10 +1,14 @@
 package com.example.callrecorder;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.PowerManager;
+import android.provider.Settings;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -102,6 +106,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startRecordingService() {
+        requestIgnoreBatteryOptimizations();
+
         Intent serviceIntent = new Intent(this, CallRecorderService.class);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             startForegroundService(serviceIntent);
@@ -109,6 +115,40 @@ public class MainActivity extends AppCompatActivity {
             startService(serviceIntent);
         }
         updateStatus();
+    }
+
+    /**
+     * Asks the user to exempt this app from battery/idle power management.
+     *
+     * This uses the standard, documented public Intent
+     * (ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS) that shows the normal
+     * system dialog — it is not a silent grant and the user can decline it.
+     * Without this exemption, some OEMs (and stock Android's own App
+     * Standby / Doze) will kill this foreground service for being idle
+     * between calls, which stops call recording from working reliably.
+     */
+    private void requestIgnoreBatteryOptimizations() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) return;
+
+        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        if (pm != null && !pm.isIgnoringBatteryOptimizations(getPackageName())) {
+            Intent intent = new Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS);
+            intent.setData(Uri.parse("package:" + getPackageName()));
+            try {
+                startActivity(intent);
+            } catch (android.content.ActivityNotFoundException e) {
+                // Some OEMs strip this system dialog from their firmware.
+                // Fall back to sending the user to the general battery
+                // settings screen instead of silently doing nothing.
+                try {
+                    startActivity(new Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS));
+                } catch (android.content.ActivityNotFoundException e2) {
+                    Toast.makeText(this,
+                            "Please manually exempt this app from battery optimization in system settings.",
+                            Toast.LENGTH_LONG).show();
+                }
+            }
+        }
     }
 
     private void stopRecordingService() {
