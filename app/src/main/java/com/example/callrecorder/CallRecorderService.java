@@ -151,7 +151,7 @@ public class CallRecorderService extends Service {
             mediaRecorder.prepare();
             mediaRecorder.start();
             return true;
-        } catch (IOException | IllegalStateException | RuntimeException e) {
+        } catch (IOException | RuntimeException e) {
             // MediaRecorder.start() can throw a bare RuntimeException (rather than
             // the documented IllegalStateException) when the native audio HAL
             // rejects a source — this happens on OEMs that block VOICE_CALL access.
