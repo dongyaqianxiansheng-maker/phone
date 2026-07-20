@@ -24,9 +24,8 @@
         your jurisdiction, including notifying other parties on a call
         where required by law.
 
-        [PLACEHOLDER: Replace this text with the exact disclosure your
-        client\'s legal counsel reviewed and signed off on. Do not ship
-        with placeholder text.]
+        [PLACEHOLDER: Replace this text with the formal disclosure text.
+        Never use or ship a version containing placeholder text.]
     </string>
 </resources>
 
